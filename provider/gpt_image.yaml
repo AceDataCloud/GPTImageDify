@@ -1,0 +1,38 @@
+identity:
+  author: acedatacloud
+  name: gpt_image
+  label:
+    en_US: GPT Image
+    zh_Hans: GPT Image
+    ja_JP: GPT Image
+    pt_BR: GPT Image
+  description:
+    en_US: Generate and edit images via Ace Data Cloud GPT Image APIs.
+    zh_Hans: 通过 Ace Data Cloud GPT Image API 生成与编辑图片。
+    ja_JP: Ace Data Cloud GPT Image API を使って画像生成・編集を行います。
+    pt_BR: Gere e edite imagens via Ace Data Cloud GPT Image APIs.
+  icon: icon.png
+  icon_dark: icon.dark.png
+  tags:
+  - image
+credentials_for_provider:
+  acedata_bearer_token:
+    type: secret-input
+    required: true
+    label:
+      en_US: Ace Data Cloud Bearer Token
+      zh_Hans: Ace Data Cloud Token
+    placeholder:
+      en_US: Paste your token (without "Bearer ")
+      zh_Hans: 粘贴 Token（不需要带 Bearer）
+    help:
+      en_US: Acquire a token with access to this service from the Ace Data Cloud console.
+      zh_Hans: 从 Ace Data Cloud 控制台获取具有此服务权限的 Token。
+    url: https://platform.acedata.cloud/console/credentials
+tools:
+- tools/gpt_image_generate.yaml
+- tools/gpt_image_edit.yaml
+- tools/gpt_image_task_retrieve.yaml
+extra:
+  python:
+    source: provider/gpt_image.py

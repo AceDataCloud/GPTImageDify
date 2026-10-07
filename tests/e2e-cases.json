@@ -1,0 +1,25 @@
+[
+  {
+    "label": "gpt-generate",
+    "operation": "generate",
+    "parameters": {
+      "prompt": "A single blue paper sphere on a plain cream background, clean studio photograph, no text. Dify integration test.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "quality": "low",
+      "count": 1
+    }
+  },
+  {
+    "label": "gpt-edit",
+    "operation": "edit",
+    "parameters": {
+      "prompt": "Change the blue paper sphere to warm orange. Keep the cream background and composition.",
+      "image_urls": "https://cdn.acedata2.cloud/gpt-image/fb33323e8fe72f3e55c08f830d487d077991457ed3a0491942f6ca069fc3abe8.png",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "quality": "low",
+      "count": 1
+    }
+  }
+]

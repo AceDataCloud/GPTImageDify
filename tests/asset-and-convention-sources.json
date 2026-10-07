@@ -1,0 +1,40 @@
+{
+  "id": "gpt_image",
+  "title": "GPT Image",
+  "origin": [
+    {
+      "path": "nodes/GptImage/icon.png",
+      "revision": "6588ba2fe42a2447368ce1170757ffd9ce037f20",
+      "sha256": "531ebdce8af2c0ac06d0400b80becea20622d286f7762225ea277a138de5b0d6"
+    },
+    {
+      "path": "nodes/GptImage/icon.dark.png",
+      "revision": "6588ba2fe42a2447368ce1170757ffd9ce037f20",
+      "sha256": "531ebdce8af2c0ac06d0400b80becea20622d286f7762225ea277a138de5b0d6"
+    }
+  ],
+  "icons": {
+    "icon.png": "531ebdce8af2c0ac06d0400b80becea20622d286f7762225ea277a138de5b0d6",
+    "icon.dark.png": "531ebdce8af2c0ac06d0400b80becea20622d286f7762225ea277a138de5b0d6"
+  },
+  "tools": [
+    {
+      "operation": "generate",
+      "file": "gpt_image_generate",
+      "id": "gpt_image_generate_image",
+      "class": "GPTImageGenerateImageTool"
+    },
+    {
+      "operation": "edit",
+      "file": "gpt_image_edit",
+      "id": "gpt_image_edit_image",
+      "class": "GPTImageEditImageTool"
+    },
+    {
+      "operation": "task",
+      "file": "gpt_image_task_retrieve",
+      "id": "gpt_image_task_retrieve",
+      "class": "GPTImageTaskRetrieveTool"
+    }
+  ]
+}
