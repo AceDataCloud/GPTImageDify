@@ -1,0 +1,33 @@
+{
+  "repo": "GPTImageDify",
+  "provider_id": "acedatacloud/gpt_image/gpt_image",
+  "icon_sha256": "531ebdce8af2c0ac06d0400b80becea20622d286f7762225ea277a138de5b0d6",
+  "tool_ids": [
+    "gpt_image_generate_image",
+    "gpt_image_edit_image",
+    "gpt_image_task_retrieve"
+  ],
+  "localized_labels": true,
+  "credential_validation": "passed",
+  "workflow_results": [
+    {
+      "case": "gpt-generate-result2",
+      "task_id": "8756bf82-543a-4fbb-92b3-6da316ceff1a",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "image_files": 1
+    },
+    {
+      "case": "gpt-edit-result",
+      "task_id": "da7ad0ac-7720-41f5-bb25-e46bd675b27b",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "image_files": 1
+    }
+  ],
+  "new_paid_generations": 0,
+  "environment": "Dify CE 1.17.1 remote-debug + console API workflows",
+  "browser_ui_tested": false,
+  "marketplace_install_tested": false,
+  "prior_paid_case_payloads_unchanged": true
+}

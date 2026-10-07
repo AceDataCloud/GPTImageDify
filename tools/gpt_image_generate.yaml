@@ -1,103 +1,117 @@
 identity:
-  name: gpt_image_edit
+  name: gpt_image_generate_image
   author: acedatacloud
   label:
-    en_US: Edit image
+    en_US: GPT Image Generate Image
+    zh_Hans: GPT Image 生成图片
 description:
   human:
-    en_US: Edit image through GPT Image by Ace Data Cloud.
-  llm: Edit image through GPT Image by Ace Data Cloud. Generation returns a task ID;
-    use Retrieve or wait for task for the final result.
+    en_US: GPT Image Generate Image via Ace Data Cloud.
+    zh_Hans: 通过 Ace Data Cloud GPT Image 生成图片。
+  llm: GPT Image Generate Image via Ace Data Cloud. Returns a task ID; use the task
+    retrieval tool to obtain completed media. Never repeat a pending submission.
 parameters:
 - name: prompt
   label:
     en_US: Prompt
+    zh_Hans: 提示词
   type: string
   required: true
   form: llm
   human_description:
     en_US: Prompt
+    zh_Hans: 描述希望生成或编辑的内容。
   llm_description: Prompt
 - name: model
   label:
     en_US: Model
+    zh_Hans: 模型
   type: select
   required: false
   form: form
   human_description:
-    en_US: Model
-  llm_description: Model
+    en_US: Select the model. Available models, access and pricing are shown in the
+      Ace Data Cloud console.
+    zh_Hans: 选择要调用的模型。模型权限和价格以 Ace Data Cloud 控制台为准。
+  llm_description: Select the model. Available models, access and pricing are shown
+    in the Ace Data Cloud console.
   default: gpt-image-2
   options:
   - value: gpt-image-1
     label:
       en_US: gpt-image-1
+      zh_Hans: gpt-image-1
   - value: gpt-image-1.5
     label:
       en_US: gpt-image-1.5
+      zh_Hans: gpt-image-1.5
   - value: gpt-image-2
     label:
       en_US: gpt-image-2
+      zh_Hans: gpt-image-2
   - value: gpt-image-2.5-flare
     label:
       en_US: gpt-image-2.5-flare
+      zh_Hans: gpt-image-2.5-flare
   - value: gpt-image-2.5-sunburst
     label:
       en_US: gpt-image-2.5-sunburst
+      zh_Hans: gpt-image-2.5-sunburst
 - name: size
   label:
     en_US: Image size
+    zh_Hans: 图片尺寸
   type: string
   required: false
   form: llm
   human_description:
     en_US: auto or WIDTHxHEIGHT; valid sizes depend on the model.
+    zh_Hans: 使用 auto 或 WIDTHxHEIGHT；可用尺寸取决于所选模型。
   llm_description: auto or WIDTHxHEIGHT; valid sizes depend on the model.
   default: 1024x1024
 - name: quality
   label:
     en_US: Quality
+    zh_Hans: 质量
   type: select
   required: false
   form: form
   human_description:
     en_US: Quality
+    zh_Hans: 生成图片的质量档位。
   llm_description: Quality
   default: auto
   options:
   - value: auto
     label:
       en_US: auto
+      zh_Hans: auto
   - value: low
     label:
       en_US: low
+      zh_Hans: low
   - value: medium
     label:
       en_US: medium
+      zh_Hans: medium
   - value: high
     label:
       en_US: high
+      zh_Hans: high
 - name: count
   label:
     en_US: Image count
+    zh_Hans: 图片数量
   type: number
   required: false
   form: form
   human_description:
-    en_US: Image count
-  llm_description: Image count
+    en_US: Number of images to generate; each image is billed at the current service
+      rate.
+    zh_Hans: 一次生成的图片数量；每张图片按当前服务价格计费。
+  llm_description: Number of images to generate; each image is billed at the current
+    service rate.
   default: 1
-- name: image_urls
-  label:
-    en_US: Reference image URLs
-  type: string
-  required: true
-  form: llm
-  human_description:
-    en_US: Public HTTPS image URLs, one per line or a JSON array. Only submit images
-      you may use.
-  llm_description: Public HTTPS image URLs, one per line or a JSON array. Only submit
-    images you may use.
 output_schema:
   type: object
   properties:
@@ -111,6 +125,11 @@ output_schema:
         type: string
     result:
       type: object
+    success:
+      type: boolean
+    trace_id:
+      type: string
+    data: {}
 extra:
   python:
-    source: tools/edit.py
+    source: tools/gpt_image_generate.py
