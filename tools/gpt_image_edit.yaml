@@ -21,18 +21,12 @@ parameters:
     zh_Hans: 参考图片链接
   human_description:
     en_US: Public HTTPS image URLs, one per line or a JSON array. Only submit images
-      you may use. Enter a JSON array or object where applicable. Enter a JSON array
-      or object where applicable. Enter a JSON array or object where applicable. Enter
-      a JSON array or object where applicable. Enter a JSON array or object where
-      applicable.
+      you may use. Enter a JSON array or object where applicable.
     zh_Hans: 参考图像 URL。接受单个 URL 字符串或 URL 字符串数组（GPT Image 系列模型最多 16 个，`dall-e-2` 仅支持
       1 个）。JSON 模式**不**接受上传的文件字节——如需直接上传文件，请使用 `multipart/form-data`。 数组或对象请使用 JSON
       格式。
   llm_description: Public HTTPS image URLs, one per line or a JSON array. Only submit
-    images you may use. Enter a JSON array or object where applicable. Enter a JSON
-    array or object where applicable. Enter a JSON array or object where applicable.
-    Enter a JSON array or object where applicable. Enter a JSON array or object where
-    applicable.
+    images you may use. Enter a JSON array or object where applicable.
 - name: prompt
   type: string
   required: true

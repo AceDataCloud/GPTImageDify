@@ -1,0 +1,97 @@
+{
+  "tested_at": "2026-10-07T08:53:40.528659+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "transport": "official remote-debug; signature verification enabled",
+  "browser_test_run": true,
+  "unit_contract_tests": "28 passed, 1 warning in 0.65s",
+  "marketplace_toolkit_passed": true,
+  "package_sha256": "644d5118e645e19c2624506899d7354afb5f84f6a6bc35e8b5cc03549afbef53",
+  "exact_package_serverless_install_passed": true,
+  "marketplace_install_tested": false,
+  "cloud_tested": false,
+  "cases": [
+    {
+      "case": "GPT Image Audit Batch",
+      "tool": "gpt_image_tasks_retrieve_batch",
+      "workflow_run_id": "78c46894-274e-41bd-a797-39b1c3523bc2",
+      "workflow_status": "succeeded",
+      "service_status": "succeeded",
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [
+        "https://cdn.acedata2.cloud/gpt-image/fb33323e8fe72f3e55c08f830d487d077991457ed3a0491942f6ca069fc3abe8.png"
+      ],
+      "error": null,
+      "new_submission": false,
+      "media_verification": [
+        {
+          "case": "GPT Image Audit Batch",
+          "size": 1344332,
+          "sha256": "7fbe3f4914a217cb84f87ac7423acde952a3a0cadd9cd641e122ec7eaa48c244",
+          "width": 1024,
+          "height": 1024,
+          "format": "PNG"
+        }
+      ],
+      "result_fields": [
+        "items"
+      ],
+      "screenshot": "evidence/gpt-image-audit-batch.png",
+      "workflow": "evidence/gpt-image-audit-batch-workflow.json"
+    },
+    {
+      "case": "GPT Image Latest Audit",
+      "tool": "gpt_image_generate_image",
+      "workflow_run_id": "ae8ebb02-479b-4f00-84af-24b8733abeac",
+      "workflow_status": "succeeded",
+      "service_status": "pending",
+      "task_id": "fab0ada2-d376-4fd7-8a5f-d01abe5ba29b",
+      "trace_id": "1e934692-db0a-4a80-ade0-1fe46d738c9e",
+      "media_urls": [],
+      "error": null,
+      "new_submission": true,
+      "resolved_by": "gpt-image-latest-audit-readback",
+      "final_service_status": "failed",
+      "billing": [
+        {
+          "id": "03865594-78fd-4768-a8a5-4f7977307d0f",
+          "trace_id": "1e934692-db0a-4a80-ade0-1fe46d738c9e",
+          "status_code": 504,
+          "deducted_amount": 0.0,
+          "created_at": "2026-10-07T08:25:31.257043Z"
+        }
+      ],
+      "billing_match": "owned credential, API and browser run window",
+      "media_verification": [],
+      "result_fields": [
+        "_id",
+        "api_id",
+        "created_at",
+        "id",
+        "started_at",
+        "trace_id",
+        "type"
+      ],
+      "screenshot": "evidence/gpt-image-latest-audit.png",
+      "workflow": "evidence/gpt-image-latest-audit-workflow.json"
+    },
+    {
+      "case": "GPT Image Latest Audit Readback",
+      "tool": "gpt_image_task_retrieve",
+      "workflow_run_id": "b2a653f5-a026-4774-bab1-a642de9bf78d",
+      "workflow_status": "failed",
+      "service_status": null,
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [],
+      "error": "An error occurred in the acedatacloud/gpt_image/gpt_image, please contact the author of acedatacloud/gpt_image/gpt_image for help, error type: AceDataGPTImageError, error details: Task failed. Use its task or trace ID to inspect the service request.",
+      "new_submission": false,
+      "media_verification": [],
+      "result_fields": [],
+      "screenshot": "evidence/gpt-image-latest-audit-readback.png",
+      "workflow": "evidence/gpt-image-latest-audit-readback-workflow.json"
+    }
+  ],
+  "primary_blocked": false,
+  "scope_note": "Recorded cases only. Batch regressions reuse earlier paid successful tasks; those media generations are not billed or claimed as new. New paid calls have separate usage reconciliation. Optional untested models/actions are not claimed as passed; original failures and their corrections are preserved."
+}
