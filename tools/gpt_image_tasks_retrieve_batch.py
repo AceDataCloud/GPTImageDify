@@ -9,11 +9,11 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.acedata_client import AceDataGPTImageClient
 
 
-class GptImageGenerateTool(Tool):
+class GptImageTasksRetrieveBatchTool(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage, None, None]:
         result = AceDataGPTImageClient(
             self.runtime.credentials.get("acedata_bearer_token", "")
-        ).invoke("gpt_image_generate_image", tool_parameters)
+        ).invoke("gpt_image_tasks_retrieve_batch", tool_parameters)
         yield self.create_json_message(result)
         for name, value in result.items():
             yield self.create_variable_message(name, value)

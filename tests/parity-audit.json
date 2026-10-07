@@ -1,0 +1,111 @@
+{
+  "backend_revision": "fa94598267a82545fb1afed6ee26bafd6cbb9ca7",
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "tools": [
+    {
+      "tool": "gpt_image_generate_image",
+      "method": "POST",
+      "path": "/openai/images/generations",
+      "parameters": [
+        "prompt",
+        "background",
+        "model",
+        "moderation",
+        "count",
+        "output_compression",
+        "output_format",
+        "partial_images",
+        "size",
+        "quality",
+        "style",
+        "callback_url"
+      ],
+      "aliases": {
+        "n": "count"
+      },
+      "schema_source": "openapi/8f01fe72-8a3e-4872-8d8d-330cde179b3a.json"
+    },
+    {
+      "tool": "gpt_image_edit_image",
+      "method": "POST",
+      "path": "/openai/images/edits",
+      "parameters": [
+        "image_urls",
+        "prompt",
+        "model",
+        "count",
+        "background",
+        "input_fidelity",
+        "output_format",
+        "output_compression",
+        "quality",
+        "size",
+        "callback_url"
+      ],
+      "aliases": {
+        "n": "count",
+        "image": "image_urls"
+      },
+      "schema_source": "openapi/fb74083e-bb68-48d5-8ba6-b5a224400cd3.json"
+    },
+    {
+      "tool": "gpt_image_list_tasks",
+      "method": "POST",
+      "path": "/openai/tasks",
+      "parameters": [
+        "action",
+        "id",
+        "trace_id",
+        "ids",
+        "trace_ids",
+        "application_id",
+        "user_id",
+        "type",
+        "offset",
+        "limit",
+        "created_at_min",
+        "created_at_max",
+        "count_mode"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/8ff29e12-b814-4484-ab50-d39773a7a563.json"
+    },
+    {
+      "tool": "gpt_image_task_retrieve",
+      "method": "POST",
+      "path": "/openai/tasks",
+      "parameters": [
+        "task_id",
+        "wait_seconds",
+        "trace_id"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/8ff29e12-b814-4484-ab50-d39773a7a563.json"
+    },
+    {
+      "tool": "gpt_image_tasks_retrieve_batch",
+      "method": "POST",
+      "path": "/openai/tasks",
+      "parameters": [
+        "trace_id",
+        "ids",
+        "trace_ids",
+        "application_id",
+        "user_id",
+        "type",
+        "offset",
+        "limit",
+        "created_at_min",
+        "created_at_max",
+        "count_mode"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/8ff29e12-b814-4484-ab50-d39773a7a563.json"
+    }
+  ],
+  "mcp_scope": "openai",
+  "notes": [
+    "Informational MCP model/action lists are represented by tool dropdowns and README capability tables.",
+    "GPT Image covers image-generation/editing/task capabilities of the broader OpenAI MCP; chat is supplied by ModelProviderDify."
+  ]
+}

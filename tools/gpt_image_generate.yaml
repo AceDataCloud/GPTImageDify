@@ -8,35 +8,77 @@ description:
   human:
     en_US: GPT Image Generate Image via Ace Data Cloud.
     zh_Hans: 通过 Ace Data Cloud GPT Image 生成图片。
-  llm: GPT Image Generate Image via Ace Data Cloud. Returns a task ID; use the task
-    retrieval tool to obtain completed media. Never repeat a pending submission.
+  llm: GPT Image Generate Image via Ace Data Cloud. For asynchronous results, preserve
+    task_id and use the task retrieval tool until completion. A successful submission
+    is not completed output.
 parameters:
 - name: prompt
-  label:
-    en_US: Prompt
-    zh_Hans: 提示词
   type: string
   required: true
   form: llm
+  label:
+    en_US: Prompt
+    zh_Hans: 提示词
   human_description:
     en_US: Prompt
-    zh_Hans: 描述希望生成或编辑的内容。
+    zh_Hans: 对所需图片的文字描述。GPT 图像模型最长支持 32000 个字符，`dall-e-2` 最长 1000 个字符，`dall-e-3` 最长
+      4000 个字符。下拉列表中提供了精选示例提示词（来源：[EvoLinkAI/awesome-gpt-image-2-prompts](https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts)，Apache-2.0
+      协议）；您也可以自行输入。
   llm_description: Prompt
-- name: model
-  label:
-    en_US: Model
-    zh_Hans: 模型
+- name: background
   type: select
   required: false
   form: form
+  label:
+    en_US: Background
+    zh_Hans: 背景
   human_description:
-    en_US: Select the model. Available models, access and pricing are shown in the
-      Ace Data Cloud console.
-    zh_Hans: 选择要调用的模型。模型权限和价格以 Ace Data Cloud 控制台为准。
-  llm_description: Select the model. Available models, access and pricing are shown
-    in the Ace Data Cloud console.
+    en_US: Set background for this operation.
+    zh_Hans: 为 GPT 图像模型设置背景透明度。可选值为 `transparent`、`opaque` 或 `auto`（默认）。选择 `transparent`
+      时，请使用支持 Alpha 通道的输出格式（png/webp）。
+  llm_description: Set background for this operation.
+  options:
+  - value: transparent
+    label:
+      en_US: transparent
+      zh_Hans: transparent
+  - value: opaque
+    label:
+      en_US: opaque
+      zh_Hans: opaque
+  - value: auto
+    label:
+      en_US: auto
+      zh_Hans: auto
+- name: model
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Model
+    zh_Hans: 模型
+  human_description:
+    en_US: Select a model currently supported by this API. Availability and pricing
+      depend on the chosen model.
+    zh_Hans: 用于图像生成的模型。支持 OpenAI 的 `dall-e-2`、`dall-e-3`、`gpt-image-1` / `gpt-image-1.5`
+      / `gpt-image-2` / `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst` 系列，以及 Google
+      的 `nano-banana` / `nano-banana-2-lite` / `nano-banana-2` / `nano-banana-pro`。不同模型支持的
+      `size`、`quality`、`style`、`background`、`output_format`、`moderation` 和 `response_format`
+      参数各有差异，详见各字段说明。`gpt-image-2` 提供 `gpt-image-2:official`（官方通道，稳定合规，按文字输入与图片输出的实际
+      Token 用量结算）与 `gpt-image-2:reverse`（等同默认 `gpt-image-2`，性价比更高）；`gpt-image-2.5-flare`
+      和 `gpt-image-2.5-sunburst` 也分别提供同名 `:official` 变体，并按实际 Token 用量结算。
+  llm_description: Select a model currently supported by this API. Availability and
+    pricing depend on the chosen model.
   default: gpt-image-2
   options:
+  - value: dall-e-2
+    label:
+      en_US: dall-e-2
+      zh_Hans: dall-e-2
+  - value: dall-e-3
+    label:
+      en_US: dall-e-3
+      zh_Hans: dall-e-3
   - value: gpt-image-1
     label:
       en_US: gpt-image-1
@@ -53,32 +95,163 @@ parameters:
     label:
       en_US: gpt-image-2.5-flare
       zh_Hans: gpt-image-2.5-flare
+  - value: gpt-image-2.5-flare:official
+    label:
+      en_US: gpt-image-2.5-flare:official
+      zh_Hans: gpt-image-2.5-flare:official
   - value: gpt-image-2.5-sunburst
     label:
       en_US: gpt-image-2.5-sunburst
       zh_Hans: gpt-image-2.5-sunburst
-- name: size
-  label:
-    en_US: Image size
-    zh_Hans: 图片尺寸
-  type: string
-  required: false
-  form: llm
-  human_description:
-    en_US: auto or WIDTHxHEIGHT; valid sizes depend on the model.
-    zh_Hans: 使用 auto 或 WIDTHxHEIGHT；可用尺寸取决于所选模型。
-  llm_description: auto or WIDTHxHEIGHT; valid sizes depend on the model.
-  default: 1024x1024
-- name: quality
-  label:
-    en_US: Quality
-    zh_Hans: 质量
+  - value: gpt-image-2.5-sunburst:official
+    label:
+      en_US: gpt-image-2.5-sunburst:official
+      zh_Hans: gpt-image-2.5-sunburst:official
+  - value: gpt-image-2:reverse
+    label:
+      en_US: gpt-image-2:reverse
+      zh_Hans: gpt-image-2:reverse
+  - value: gpt-image-2:official
+    label:
+      en_US: gpt-image-2:official
+      zh_Hans: gpt-image-2:official
+  - value: nano-banana
+    label:
+      en_US: nano-banana
+      zh_Hans: nano-banana
+  - value: nano-banana-2-lite
+    label:
+      en_US: nano-banana-2-lite
+      zh_Hans: nano-banana-2-lite
+  - value: nano-banana-2
+    label:
+      en_US: nano-banana-2
+      zh_Hans: nano-banana-2
+  - value: nano-banana-pro
+    label:
+      en_US: nano-banana-pro
+      zh_Hans: nano-banana-pro
+- name: moderation
   type: select
   required: false
   form: form
+  label:
+    en_US: Moderation
+    zh_Hans: 内容审核
+  human_description:
+    en_US: Set moderation for this operation.
+    zh_Hans: GPT 图像模型的内容审核级别。`low` 会放宽过滤力度；`auto` 使用默认策略。
+  llm_description: Set moderation for this operation.
+  options:
+  - value: low
+    label:
+      en_US: low
+      zh_Hans: low
+  - value: auto
+    label:
+      en_US: auto
+      zh_Hans: auto
+- name: count
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Image count
+    zh_Hans: 图片数量
+  human_description:
+    en_US: Number of images to generate; each image is billed at the current service
+      rate.
+    zh_Hans: 要生成的图片数量，范围为 1 到 10。`dall-e-3` 固定为 `1`。`dall-e-2`、`gpt-image-1` / `gpt-image-1.5`
+      / `gpt-image-2` / `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst` 系列以及 `nano-banana`
+      / `nano-banana-2-lite` / `nano-banana-2` / `nano-banana-pro` 系列均支持 `n>1`：默认模型与
+      `:reverse` 按成功张数计费，`:official` 按整次响应汇总的实际 Token 用量结算，不会重复乘以 `n`。注意 `response_format=b64_json`
+      仅支持 `n=1`，`n>1` 时请使用默认的 URL 返回。若部分图片生成失败，将只返回并计费成功的部分。
+  llm_description: Number of images to generate; each image is billed at the current
+    service rate.
+  default: 1
+  min: 1
+  max: 10
+- name: output_compression
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Output Compression
+    zh_Hans: 输出压缩质量
+  human_description:
+    en_US: Set output compression for this operation.
+    zh_Hans: GPT 图像模型使用 `webp` 或 `jpeg` 输出格式时的压缩级别（0-100%）。
+  llm_description: Set output compression for this operation.
+  min: 0
+  max: 100
+- name: output_format
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Output Format
+    zh_Hans: 输出格式
+  human_description:
+    en_US: Set output format for this operation.
+    zh_Hans: GPT 图像模型的返回格式。可选值为 `png`、`jpeg` 或 `webp`。
+  llm_description: Set output format for this operation.
+  options:
+  - value: png
+    label:
+      en_US: png
+      zh_Hans: png
+  - value: jpeg
+    label:
+      en_US: jpeg
+      zh_Hans: jpeg
+  - value: webp
+    label:
+      en_US: webp
+      zh_Hans: webp
+- name: partial_images
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Partial Images
+    zh_Hans: 预览图片数量
+  human_description:
+    en_US: Set partial images for this operation.
+    zh_Hans: 流式传输过程中发送的中间图片数量（0-3）。`0` 表示在一个事件中直接返回最终图片。
+  llm_description: Set partial images for this operation.
+  min: 0
+  max: 3
+- name: size
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Image size
+    zh_Hans: 图片尺寸
+  human_description:
+    en_US: auto or WIDTHxHEIGHT; valid sizes depend on the model.
+    zh_Hans: 生成图片的尺寸，格式为 `宽x高`，或填写 `auto` 按提示词语义选择画幅。**GPT Image 2 系列（`gpt-image-2`、`gpt-image-2.5-flare`、`gpt-image-2.5-sunburst`）**接受任意符合格式的
+      `WIDTHxHEIGHT` 值，包括 1K 预设（`1024x1024`、`1536x1024`、`1024x1536`、`1792x1024`、`1024x1792`）、2K
+      预设（`2048x2048`、`2048x1536`、`1536x2048`、`2048x1152`、`1152x2048`）、4K 预设（`2880x2880`、`3264x2448`、`2448x3264`、`3840x2160`、`2160x3840`）以及任意自定义尺寸；默认模型与
+      `:reverse` 按张计费，`:official` 的尺寸和质量会影响 Token 用量并按实际用量结算。尺寸限制：自定义尺寸必须是 16 的倍数，较长边不超过
+      3840，总像素为 655,360–8,294,400，宽高比不超过 3:1。`dall-e-2` 支持：`256x256`、`512x512`、`1024x1024`。`dall-e-3`
+      支持：`1024x1024`、`1792x1024`、`1024x1792`。显式传入 `auto` 时，平台会在连续比例空间中按明确像素或比例、命名标准（纸张
+      / 印刷品 / 平台版位 / 广告 / 设备 / 摄影 / 电影）、介质惯例和构图依次判断。除常见比例外，也能保留 `1.91:1`、`1.85:1`、`2.39:1`、ISO
+      纸张 `1:√2` 等非预设比例；结果会归一化为服务支持的 16 倍数和像素预算。自动判断不可用时回退到模型默认画幅。省略 `size` 字段则直接使用模型默认画幅。对像素有严格要求时请直接传
+      `WIDTHxHEIGHT`。
+  llm_description: auto or WIDTHxHEIGHT; valid sizes depend on the model.
+  default: 1024x1024
+- name: quality
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Quality
+    zh_Hans: 质量
   human_description:
     en_US: Quality
-    zh_Hans: 生成图片的质量档位。
+    zh_Hans: 图片质量。GPT 图像模型可选：`auto`（默认）、`high`、`medium`、`low`。`dall-e-3` 可选：`hd` 或
+      `standard`。`dall-e-2` 仅支持：`standard`。
   llm_description: Quality
   default: auto
   options:
@@ -86,50 +259,76 @@ parameters:
     label:
       en_US: auto
       zh_Hans: auto
-  - value: low
-    label:
-      en_US: low
-      zh_Hans: low
-  - value: medium
-    label:
-      en_US: medium
-      zh_Hans: medium
   - value: high
     label:
       en_US: high
       zh_Hans: high
-- name: count
-  label:
-    en_US: Image count
-    zh_Hans: 图片数量
-  type: number
+  - value: medium
+    label:
+      en_US: medium
+      zh_Hans: medium
+  - value: low
+    label:
+      en_US: low
+      zh_Hans: low
+  - value: hd
+    label:
+      en_US: hd
+      zh_Hans: hd
+  - value: standard
+    label:
+      en_US: standard
+      zh_Hans: standard
+- name: style
+  type: select
   required: false
   form: form
+  label:
+    en_US: Style
+    zh_Hans: 风格
   human_description:
-    en_US: Number of images to generate; each image is billed at the current service
-      rate.
-    zh_Hans: 一次生成的图片数量；每张图片按当前服务价格计费。
-  llm_description: Number of images to generate; each image is billed at the current
-    service rate.
-  default: 1
+    en_US: Set style for this operation.
+    zh_Hans: '`dall-e-3` 的风格：`vivid`（超真实/戏剧化）或 `natural`（更自然中性）。'
+  llm_description: Set style for this operation.
+  options:
+  - value: vivid
+    label:
+      en_US: vivid
+      zh_Hans: vivid
+  - value: natural
+    label:
+      en_US: natural
+      zh_Hans: natural
+- name: callback_url
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Callback Url
+    zh_Hans: 回调 URL
+  human_description:
+    en_US: Set callback url for this operation.
+    zh_Hans: 可选的回调 URL。提供后，API 将立即返回 `task_id`，并在图片生成完成后以 POST 请求将结果推送至该 URL。回调载荷包含
+      `task_id`、`trace_id`、`success`（布尔值）以及完整的响应数据或错误信息。
+  llm_description: Set callback url for this operation.
 output_schema:
   type: object
   properties:
     status:
       type: string
+    success:
+      type: boolean
     task_id:
+      type: string
+    trace_id:
       type: string
     media_urls:
       type: array
       items:
         type: string
+    data: {}
     result:
       type: object
-    success:
-      type: boolean
-    trace_id:
-      type: string
-    data: {}
 extra:
   python:
     source: tools/gpt_image_generate.py

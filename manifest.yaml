@@ -13,7 +13,7 @@ description:
   ja_JP: Ace Data Cloud GPT Image API を使って画像生成・編集を行います。
   pt_BR: Gere e edite imagens via Ace Data Cloud GPT Image APIs.
 icon: icon.png
-icon_dark: icon.dark.png
+icon_dark: icon.png
 resource:
   memory: 268435456
   permission:

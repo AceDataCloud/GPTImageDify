@@ -1,0 +1,64 @@
+[
+  {
+    "name": "gpt_image_generate_image-1",
+    "tool": "gpt_image_generate_image",
+    "inputs": {
+      "prompt": "Test",
+      "model": "gpt-image-2.5-flare",
+      "count": 2
+    },
+    "method": "POST",
+    "path": "/openai/images/generations",
+    "body": {
+      "n": 2,
+      "model": "gpt-image-2.5-flare"
+    }
+  },
+  {
+    "name": "gpt_image_edit_image-2",
+    "tool": "gpt_image_edit_image",
+    "inputs": {
+      "prompt": "Edit",
+      "image_urls": "https://example.org/reference.png",
+      "input_fidelity": "high"
+    },
+    "method": "POST",
+    "path": "/openai/images/edits",
+    "body": {
+      "image": [
+        "https://example.org/reference.png"
+      ],
+      "input_fidelity": "high"
+    }
+  },
+  {
+    "name": "gpt_image_list_tasks-3",
+    "tool": "gpt_image_list_tasks",
+    "inputs": {
+      "limit": 2
+    },
+    "method": "POST",
+    "path": "/openai/tasks",
+    "body": {
+      "action": "retrieve_batch",
+      "limit": 2
+    },
+    "read_only": true
+  },
+  {
+    "name": "gpt_image_tasks_retrieve_batch-4",
+    "tool": "gpt_image_tasks_retrieve_batch",
+    "inputs": {
+      "ids": "[\"owned-task\"]"
+    },
+    "method": "POST",
+    "path": "/openai/tasks",
+    "body": {
+      "action": "retrieve_batch",
+      "ids": [
+        "owned-task"
+      ]
+    },
+    "read_only": true
+  }
+]
