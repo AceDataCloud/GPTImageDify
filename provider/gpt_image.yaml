@@ -12,7 +12,7 @@ identity:
     ja_JP: Ace Data Cloud GPT Image API を使って画像生成・編集を行います。
     pt_BR: Gere e edite imagens via Ace Data Cloud GPT Image APIs.
   icon: icon.png
-  icon_dark: icon.dark.png
+  icon_dark: icon.png
   tags:
   - image
 credentials_for_provider:
@@ -32,7 +32,9 @@ credentials_for_provider:
 tools:
 - tools/gpt_image_generate.yaml
 - tools/gpt_image_edit.yaml
+- tools/gpt_image_list_tasks.yaml
 - tools/gpt_image_task_retrieve.yaml
+- tools/gpt_image_tasks_retrieve_batch.yaml
 extra:
   python:
     source: provider/gpt_image.py

@@ -1,0 +1,173 @@
+{
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "mapping": [
+    {
+      "mcp_tool": "openai_chat_completion",
+      "dify_tools": [],
+      "parameters": {
+        "n": "count",
+        "stream": "Dify submit/poll output: async=true, stream=false",
+        "response_format": "URL output for Dify media"
+      },
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_create_response",
+      "dify_tools": [],
+      "parameters": {
+        "n": "count",
+        "response_format": "URL output for Dify media",
+        "stream": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_get_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_get_realtime_connection_info",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_list_chat_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_list_image_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Model/action selectors and the API reference; informational guidance does not submit a request."
+    },
+    {
+      "mcp_tool": "openai_list_embedding_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_get_usage_guide",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_text_to_speech",
+      "dify_tools": [],
+      "parameters": {
+        "response_format": "URL output for Dify media"
+      },
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_transcribe_audio",
+      "dify_tools": [],
+      "parameters": {
+        "response_format": "URL output for Dify media",
+        "stream": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    },
+    {
+      "mcp_tool": "openai_get_task",
+      "dify_tools": [
+        "gpt_image_task_retrieve"
+      ],
+      "parameters": {
+        "id": "task_id",
+        "trace_id": "trace_id"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve"
+    },
+    {
+      "mcp_tool": "openai_list_tasks",
+      "dify_tools": [
+        "gpt_image_list_tasks"
+      ],
+      "parameters": {
+        "ids": "ids",
+        "trace_ids": "trace_ids",
+        "application_id": "application_id",
+        "user_id": "user_id",
+        "type": "type",
+        "offset": "offset",
+        "limit": "limit",
+        "created_at_min": "created_at_min",
+        "created_at_max": "created_at_max"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve_batch"
+    },
+    {
+      "mcp_tool": "openai_generate_image",
+      "dify_tools": [
+        "gpt_image_generate_image"
+      ],
+      "parameters": {
+        "prompt": "prompt",
+        "model": "model",
+        "size": "size",
+        "quality": "quality",
+        "n": "count",
+        "output_format": "output_format",
+        "response_format": "URL output for Dify media",
+        "style": "style",
+        "background": "background",
+        "moderation": "moderation",
+        "output_compression": "output_compression",
+        "partial_images": "partial_images",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "openai_edit_image",
+      "dify_tools": [
+        "gpt_image_edit_image"
+      ],
+      "parameters": {
+        "image": "image_urls",
+        "prompt": "prompt",
+        "model": "model",
+        "size": "size",
+        "quality": "quality",
+        "n": "count",
+        "background": "background",
+        "input_fidelity": "input_fidelity",
+        "output_format": "output_format",
+        "response_format": "URL output for Dify media",
+        "output_compression": "output_compression",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "openai_create_embedding",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Outside this image plugin: see scope above."
+    }
+  ]
+}

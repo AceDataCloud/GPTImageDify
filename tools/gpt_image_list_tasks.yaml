@@ -1,0 +1,215 @@
+identity:
+  name: gpt_image_list_tasks
+  author: acedatacloud
+  label:
+    en_US: GPT Image List Tasks
+    zh_Hans: GPT Image 列出任务
+description:
+  human:
+    en_US: List Tasks through the Ace Data Cloud GPT Image API.
+    zh_Hans: 通过 Ace Data Cloud GPT Image API 执行 List Tasks。
+  llm: List Tasks through the Ace Data Cloud GPT Image API. For asynchronous results,
+    preserve task_id and use the task retrieval tool until completion. A successful
+    submission is not completed output.
+parameters:
+- name: action
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Action
+    zh_Hans: 操作
+  human_description:
+    en_US: Set action for this operation.
+    zh_Hans: 操作类型。使用 `retrieve` 查询单个任务，使用 `retrieve_batch` 批量列出任务。
+  llm_description: Set action for this operation.
+  default: retrieve_batch
+  options:
+  - value: retrieve
+    label:
+      en_US: retrieve
+      zh_Hans: retrieve
+  - value: retrieve_batch
+    label:
+      en_US: retrieve_batch
+      zh_Hans: retrieve_batch
+- name: id
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Id
+    zh_Hans: ID
+  human_description:
+    en_US: Set id for this operation.
+    zh_Hans: 任务 ID（原始响应中返回）。由 `retrieve` 使用。
+  llm_description: Set id for this operation.
+- name: trace_id
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Trace Id
+    zh_Hans: 追踪 ID
+  human_description:
+    en_US: Set trace id for this operation.
+    zh_Hans: 原始请求的追踪 ID。由 `retrieve` 使用。
+  llm_description: Set trace id for this operation.
+- name: ids
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Ids
+    zh_Hans: ID 列表
+  human_description:
+    en_US: Use the task ID or IDs returned by earlier submissions. Enter a JSON array
+      or object where applicable.
+    zh_Hans: 使用之前提交返回的任务 ID。 数组或对象请使用 JSON 格式。
+  llm_description: Use the task ID or IDs returned by earlier submissions. Enter a
+    JSON array or object where applicable.
+- name: trace_ids
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Trace Ids
+    zh_Hans: 追踪 ID 列表
+  human_description:
+    en_US: Set trace ids for this operation. Enter a JSON array or object where applicable.
+    zh_Hans: 追踪 ID 列表。由 `retrieve_batch` 使用。 数组或对象请使用 JSON 格式。
+  llm_description: Set trace ids for this operation. Enter a JSON array or object
+    where applicable.
+- name: application_id
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Application Id
+    zh_Hans: 应用 ID
+  human_description:
+    en_US: Set application id for this operation.
+    zh_Hans: 按 `application_id` 过滤任务。由 `retrieve_batch` 使用。
+  llm_description: Set application id for this operation.
+- name: user_id
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: User Id
+    zh_Hans: 用户 ID
+  human_description:
+    en_US: Set user id for this operation.
+    zh_Hans: 按 `user_id` 过滤任务。由 `retrieve_batch` 使用。
+  llm_description: Set user id for this operation.
+- name: type
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Type
+    zh_Hans: 类型
+  human_description:
+    en_US: Set type for this operation.
+    zh_Hans: 按任务类型过滤。同一个模型可能产生不同的任务类型，取决于本次请求实际走的处理路径，因此不建议依赖类型与模型的对应关系；省略该字段将返回全部类型。由
+      `retrieve_batch` 使用。
+  llm_description: Set type for this operation.
+  options:
+  - value: images
+    label:
+      en_US: images
+      zh_Hans: images
+  - value: images_generations
+    label:
+      en_US: images_generations
+      zh_Hans: images_generations
+  - value: images_edits
+    label:
+      en_US: images_edits
+      zh_Hans: images_edits
+- name: offset
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Offset
+    zh_Hans: 偏移量
+  human_description:
+    en_US: Set offset for this operation.
+    zh_Hans: 分页偏移量。由 `retrieve_batch` 使用。
+  llm_description: Set offset for this operation.
+- name: limit
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Limit
+    zh_Hans: 返回数量
+  human_description:
+    en_US: Set limit for this operation.
+    zh_Hans: 分页大小。由 `retrieve_batch` 使用。
+  llm_description: Set limit for this operation.
+- name: created_at_min
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Created At Min
+    zh_Hans: 创建时间下限
+  human_description:
+    en_US: Set created at min for this operation.
+    zh_Hans: 筛选在此 Unix 时间戳（秒）之后创建的任务。由 `retrieve_batch` 使用。
+  llm_description: Set created at min for this operation.
+- name: created_at_max
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Created At Max
+    zh_Hans: 创建时间上限
+  human_description:
+    en_US: Set created at max for this operation.
+    zh_Hans: 筛选在此 Unix 时间戳（秒）之前创建的任务。由 `retrieve_batch` 使用。
+  llm_description: Set created at max for this operation.
+- name: count_mode
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Count Mode
+    zh_Hans: 计数方式
+  human_description:
+    en_US: Set count mode for this operation.
+    zh_Hans: 计数模式。默认 `none` 不执行完整统计，并通过分页元数据返回可证明的数量；`exact` 尝试在 2 秒内统计精确总数，超时后自动降级为下界。由
+      `retrieve_batch` 使用。
+  llm_description: Set count mode for this operation.
+  options:
+  - value: none
+    label:
+      en_US: none
+      zh_Hans: none
+  - value: exact
+    label:
+      en_US: exact
+      zh_Hans: exact
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    success:
+      type: boolean
+    task_id:
+      type: string
+    trace_id:
+      type: string
+    media_urls:
+      type: array
+      items:
+        type: string
+    data: {}
+    result:
+      type: object
+extra:
+  python:
+    source: tools/gpt_image_list_tasks.py
