@@ -1,0 +1,116 @@
+identity:
+  name: gpt_image_edit
+  author: acedatacloud
+  label:
+    en_US: Edit image
+description:
+  human:
+    en_US: Edit image through GPT Image by Ace Data Cloud.
+  llm: Edit image through GPT Image by Ace Data Cloud. Generation returns a task ID;
+    use Retrieve or wait for task for the final result.
+parameters:
+- name: prompt
+  label:
+    en_US: Prompt
+  type: string
+  required: true
+  form: llm
+  human_description:
+    en_US: Prompt
+  llm_description: Prompt
+- name: model
+  label:
+    en_US: Model
+  type: select
+  required: false
+  form: form
+  human_description:
+    en_US: Model
+  llm_description: Model
+  default: gpt-image-2
+  options:
+  - value: gpt-image-1
+    label:
+      en_US: gpt-image-1
+  - value: gpt-image-1.5
+    label:
+      en_US: gpt-image-1.5
+  - value: gpt-image-2
+    label:
+      en_US: gpt-image-2
+  - value: gpt-image-2.5-flare
+    label:
+      en_US: gpt-image-2.5-flare
+  - value: gpt-image-2.5-sunburst
+    label:
+      en_US: gpt-image-2.5-sunburst
+- name: size
+  label:
+    en_US: Image size
+  type: string
+  required: false
+  form: llm
+  human_description:
+    en_US: auto or WIDTHxHEIGHT; valid sizes depend on the model.
+  llm_description: auto or WIDTHxHEIGHT; valid sizes depend on the model.
+  default: 1024x1024
+- name: quality
+  label:
+    en_US: Quality
+  type: select
+  required: false
+  form: form
+  human_description:
+    en_US: Quality
+  llm_description: Quality
+  default: auto
+  options:
+  - value: auto
+    label:
+      en_US: auto
+  - value: low
+    label:
+      en_US: low
+  - value: medium
+    label:
+      en_US: medium
+  - value: high
+    label:
+      en_US: high
+- name: count
+  label:
+    en_US: Image count
+  type: number
+  required: false
+  form: form
+  human_description:
+    en_US: Image count
+  llm_description: Image count
+  default: 1
+- name: image_urls
+  label:
+    en_US: Reference image URLs
+  type: string
+  required: true
+  form: llm
+  human_description:
+    en_US: Public HTTPS image URLs, one per line or a JSON array. Only submit images
+      you may use.
+  llm_description: Public HTTPS image URLs, one per line or a JSON array. Only submit
+    images you may use.
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    task_id:
+      type: string
+    media_urls:
+      type: array
+      items:
+        type: string
+    result:
+      type: object
+extra:
+  python:
+    source: tools/edit.py

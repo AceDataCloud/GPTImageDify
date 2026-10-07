@@ -1,0 +1,61 @@
+{
+  "tested_at": "2026-10-07",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local, official remote-debug, console API workflows",
+  "signature_verification": true,
+  "browser_ui_tested": false,
+  "marketplace_install_tested": false,
+  "cases": [
+    {
+      "case": "gpt-generate",
+      "operation": "generate",
+      "workflow_status": "succeeded",
+      "task_status": "pending",
+      "task_id": "8756bf82-543a-4fbb-92b3-6da316ceff1a",
+      "media_urls": []
+    },
+    {
+      "case": "gpt-generate-result2",
+      "operation": "task",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "task_id": "8756bf82-543a-4fbb-92b3-6da316ceff1a",
+      "media_urls": [
+        "https://cdn.acedata2.cloud/gpt-image/fb33323e8fe72f3e55c08f830d487d077991457ed3a0491942f6ca069fc3abe8.png"
+      ]
+    },
+    {
+      "case": "gpt-edit",
+      "operation": "edit",
+      "workflow_status": "succeeded",
+      "task_status": "pending",
+      "task_id": "da7ad0ac-7720-41f5-bb25-e46bd675b27b",
+      "media_urls": []
+    },
+    {
+      "case": "gpt-edit-result",
+      "operation": "task",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "task_id": "da7ad0ac-7720-41f5-bb25-e46bd675b27b",
+      "media_urls": [
+        "https://cdn.acedata2.cloud/gpt-image/41a52ff3274af58b59d9264e3ad6605c556b78f97d9ea51899a088b742e44419.png"
+      ]
+    }
+  ],
+  "billing": [
+    {
+      "case": "gpt-generate",
+      "task_id": "8756bf82-543a-4fbb-92b3-6da316ceff1a",
+      "matched_records": 1,
+      "http_status": 200,
+      "deducted_credits": 0.099
+    },
+    {
+      "case": "gpt-edit",
+      "task_id": "da7ad0ac-7720-41f5-bb25-e46bd675b27b",
+      "matched_records": 1,
+      "http_status": 200,
+      "deducted_credits": 0.099
+    }
+  ]
+}
