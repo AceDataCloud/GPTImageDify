@@ -1,0 +1,31 @@
+{
+  "repo": "GPTImageDify",
+  "marketplace_url": "https://marketplace.dify.ai/plugin/acedatacloud/gpt_image",
+  "identifier": "acedatacloud/gpt_image:0.0.1@f51a280aeef62f9be595b9eae5c7c9df62dd820e3834cec25520c8cf5ee629aa",
+  "installation_source": "marketplace",
+  "workflow_id": "73580a51-aff2-489d-8fb9-8875796e97a1",
+  "workflow_status": "succeeded",
+  "service_status": "succeeded",
+  "case": "GPT Image Marketplace Installed",
+  "media_urls": [
+    "https://cdn.acedata2.cloud/gpt-image/fb33323e8fe72f3e55c08f830d487d077991457ed3a0491942f6ca069fc3abe8.png"
+  ],
+  "outputs": {
+    "status": "succeeded",
+    "success": true,
+    "task_id": "",
+    "trace_id": ""
+  },
+  "icon_matches_source": true,
+  "paid_generation_reused": true,
+  "prior_media_decode_evidence": true,
+  "media_readback_status": "completed existing task output; generation not repeated",
+  "tested_at": "2026-10-08T01:26:57.567309+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "signature_verification_enabled": true,
+  "remote_debug_used": false,
+  "marketplace_install_tested": true,
+  "cloud_tested": false,
+  "screenshot": "evidence/marketplace-20261008.png",
+  "workflow": "evidence/marketplace-20261008-workflow.json"
+}
