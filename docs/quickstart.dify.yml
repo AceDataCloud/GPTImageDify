@@ -6,12 +6,7 @@ app:
   mode: workflow
   name: GPT Image Step-by-step Tutorial
   use_icon_as_answer_icon: false
-dependencies:
-- current_identifier: null
-  type: marketplace
-  value:
-    marketplace_plugin_unique_identifier: acedatacloud/gpt_image:0.0.1@f51a280aeef62f9be595b9eae5c7c9df62dd820e3834cec25520c8cf5ee629aa
-    version: null
+dependencies: []
 kind: app
 version: 0.7.0
 workflow:
@@ -86,7 +81,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/gpt_image:0.0.1@f51a280aeef62f9be595b9eae5c7c9df62dd820e3834cec25520c8cf5ee629aa
         provider_id: acedatacloud/gpt_image/gpt_image
         provider_name: acedatacloud/gpt_image/gpt_image
         provider_type: builtin
@@ -134,7 +128,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/gpt_image:0.0.1@f51a280aeef62f9be595b9eae5c7c9df62dd820e3834cec25520c8cf5ee629aa
         provider_id: acedatacloud/gpt_image/gpt_image
         provider_name: acedatacloud/gpt_image/gpt_image
         provider_type: builtin
