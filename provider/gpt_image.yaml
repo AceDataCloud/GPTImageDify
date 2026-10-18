@@ -2,10 +2,10 @@ identity:
   author: acedatacloud
   name: gpt_image
   label:
-    en_US: GPT Image
-    zh_Hans: GPT Image
-    ja_JP: GPT Image
-    pt_BR: GPT Image
+    en_US: GPT Image by Ace Data Cloud
+    zh_Hans: GPT Image by Ace Data Cloud
+    ja_JP: GPT Image by Ace Data Cloud
+    pt_BR: GPT Image by Ace Data Cloud
   description:
     en_US: Generate and edit images via Ace Data Cloud GPT Image APIs.
     zh_Hans: 通过 Ace Data Cloud GPT Image API 生成与编辑图片。
@@ -28,7 +28,7 @@ credentials_for_provider:
     help:
       en_US: Acquire a token with access to this service from the Ace Data Cloud console.
       zh_Hans: 从 Ace Data Cloud 控制台获取具有此服务权限的 Token。
-    url: https://platform.acedata.cloud/console/credentials
+    url: https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=gptimagedify_provider_api_key
 tools:
 - tools/gpt_image_generate.yaml
 - tools/gpt_image_edit.yaml
