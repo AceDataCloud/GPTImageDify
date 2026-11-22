@@ -1,4 +1,9 @@
-"""Published API contracts; source revisions are recorded in tests/parity-audit.json."""
+"""API contracts; model enums track the published sources in model_catalog.json."""
+
+import json
+from pathlib import Path
+
+MODEL_IDS = json.loads(Path(__file__).with_name("model_catalog.json").read_text())["models"]
 
 TASK_PATH = "/openai/tasks"
 
@@ -14,23 +19,7 @@ ENDPOINTS = {
                 "prompt": {"type": "string"},
                 "background": {"enum": ["transparent", "opaque", "auto"], "type": "string"},
                 "model": {
-                    "enum": [
-                        "dall-e-2",
-                        "dall-e-3",
-                        "gpt-image-1",
-                        "gpt-image-1.5",
-                        "gpt-image-2",
-                        "gpt-image-2.5-flare",
-                        "gpt-image-2.5-flare:official",
-                        "gpt-image-2.5-sunburst",
-                        "gpt-image-2.5-sunburst:official",
-                        "gpt-image-2:reverse",
-                        "gpt-image-2:official",
-                        "nano-banana",
-                        "nano-banana-2-lite",
-                        "nano-banana-2",
-                        "nano-banana-pro",
-                    ],
+                    "enum": MODEL_IDS["gpt_image_generate_image"],
                     "type": "string",
                 },
                 "moderation": {"enum": ["low", "auto"], "type": "string"},
@@ -53,23 +42,7 @@ ENDPOINTS = {
             "prompt": {"type": "string"},
             "background": {"enum": ["transparent", "opaque", "auto"], "type": "string"},
             "model": {
-                "enum": [
-                    "dall-e-2",
-                    "dall-e-3",
-                    "gpt-image-1",
-                    "gpt-image-1.5",
-                    "gpt-image-2",
-                    "gpt-image-2.5-flare",
-                    "gpt-image-2.5-flare:official",
-                    "gpt-image-2.5-sunburst",
-                    "gpt-image-2.5-sunburst:official",
-                    "gpt-image-2:reverse",
-                    "gpt-image-2:official",
-                    "nano-banana",
-                    "nano-banana-2-lite",
-                    "nano-banana-2",
-                    "nano-banana-pro",
-                ],
+                "enum": MODEL_IDS["gpt_image_generate_image"],
                 "type": "string",
             },
             "moderation": {"enum": ["low", "auto"], "type": "string"},
@@ -114,23 +87,7 @@ ENDPOINTS = {
                 },
                 "prompt": {"type": "string"},
                 "model": {
-                    "enum": [
-                        "dall-e-2",
-                        "dall-e-3",
-                        "gpt-image-1",
-                        "gpt-image-1.5",
-                        "gpt-image-2",
-                        "gpt-image-2.5-flare",
-                        "gpt-image-2.5-flare:official",
-                        "gpt-image-2.5-sunburst",
-                        "gpt-image-2.5-sunburst:official",
-                        "gpt-image-2:reverse",
-                        "gpt-image-2:official",
-                        "nano-banana",
-                        "nano-banana-2-lite",
-                        "nano-banana-2",
-                        "nano-banana-pro",
-                    ],
+                    "enum": MODEL_IDS["gpt_image_edit_image"],
                     "type": "string",
                 },
                 "n": {"type": "integer", "minimum": 1, "maximum": 10},
@@ -157,23 +114,7 @@ ENDPOINTS = {
             },
             "prompt": {"type": "string"},
             "model": {
-                "enum": [
-                    "dall-e-2",
-                    "dall-e-3",
-                    "gpt-image-1",
-                    "gpt-image-1.5",
-                    "gpt-image-2",
-                    "gpt-image-2.5-flare",
-                    "gpt-image-2.5-flare:official",
-                    "gpt-image-2.5-sunburst",
-                    "gpt-image-2.5-sunburst:official",
-                    "gpt-image-2:reverse",
-                    "gpt-image-2:official",
-                    "nano-banana",
-                    "nano-banana-2-lite",
-                    "nano-banana-2",
-                    "nano-banana-pro",
-                ],
+                "enum": MODEL_IDS["gpt_image_edit_image"],
                 "type": "string",
             },
             "n": {"type": "integer", "minimum": 1, "maximum": 10},

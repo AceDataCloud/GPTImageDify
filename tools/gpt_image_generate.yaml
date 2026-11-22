@@ -95,6 +95,10 @@ parameters:
     label:
       en_US: gpt-image-2.5-flare
       zh_Hans: gpt-image-2.5-flare
+  - value: gpt-image-2.5-flare:reverse
+    label:
+      en_US: gpt-image-2.5-flare:reverse
+      zh_Hans: gpt-image-2.5-flare:reverse
   - value: gpt-image-2.5-flare:official
     label:
       en_US: gpt-image-2.5-flare:official
@@ -103,6 +107,10 @@ parameters:
     label:
       en_US: gpt-image-2.5-sunburst
       zh_Hans: gpt-image-2.5-sunburst
+  - value: gpt-image-2.5-sunburst:reverse
+    label:
+      en_US: gpt-image-2.5-sunburst:reverse
+      zh_Hans: gpt-image-2.5-sunburst:reverse
   - value: gpt-image-2.5-sunburst:official
     label:
       en_US: gpt-image-2.5-sunburst:official
@@ -127,10 +135,38 @@ parameters:
     label:
       en_US: nano-banana-2
       zh_Hans: nano-banana-2
+  - value: nano-banana-2.1
+    label:
+      en_US: nano-banana-2.1
+      zh_Hans: nano-banana-2.1
   - value: nano-banana-pro
     label:
       en_US: nano-banana-pro
       zh_Hans: nano-banana-pro
+  - value: gpt-image-2.6-flare
+    label:
+      en_US: gpt-image-2.6-flare
+      zh_Hans: gpt-image-2.6-flare
+  - value: gpt-image-2.6-flare:reverse
+    label:
+      en_US: gpt-image-2.6-flare:reverse
+      zh_Hans: gpt-image-2.6-flare:reverse
+  - value: gpt-image-2.6-flare:official
+    label:
+      en_US: gpt-image-2.6-flare:official
+      zh_Hans: gpt-image-2.6-flare:official
+  - value: gpt-image-2.6-sunburst
+    label:
+      en_US: gpt-image-2.6-sunburst
+      zh_Hans: gpt-image-2.6-sunburst
+  - value: gpt-image-2.6-sunburst:reverse
+    label:
+      en_US: gpt-image-2.6-sunburst:reverse
+      zh_Hans: gpt-image-2.6-sunburst:reverse
+  - value: gpt-image-2.6-sunburst:official
+    label:
+      en_US: gpt-image-2.6-sunburst:official
+      zh_Hans: gpt-image-2.6-sunburst:official
 - name: moderation
   type: select
   required: false

@@ -107,5 +107,17 @@
   "notes": [
     "Informational MCP model/action lists are represented by tool dropdowns and README capability tables.",
     "GPT Image covers image-generation/editing/task capabilities of the broader OpenAI MCP; chat is supplied by ModelProviderDify."
-  ]
+  ],
+  "model_enum_refresh": {
+    "source": "published production Api.definition",
+    "observed_at": "2026-11-22T18:31:03.339190+00:00",
+    "generation_api": "https://platform.acedata.cloud/api/v1/apis/8f01fe72-8a3e-4872-8d8d-330cde179b3a/",
+    "edit_api": "https://platform.acedata.cloud/api/v1/apis/fb74083e-bb68-48d5-8ba6-b5a224400cd3/",
+    "counts": {
+      "generation": 24,
+      "edit": 24
+    },
+    "preserved_default": "gpt-image-2",
+    "inference_calls": 0
+  }
 }
