@@ -1,5 +1,9 @@
 # GPT Image for Dify: step-by-step guide
 
+**Model catalog update (0.0.6):** generation and editing now include all 24 model IDs in their published API definitions, including GPT Image 2.6 Flare/Sunburst, the explicit 2.5 reverse variants, and Nano Banana 2.1. The default remains `gpt-image-2`; existing workflows are unchanged. Check the installed Marketplace version before expecting the expanded list.
+
+The daily source synchronization reads public API metadata, updates both Dify selectors and the runtime validation enums, runs the normal tests, and opens a Dev-bot PR with a version bump. Official Marketplace review and installation of the published update are still required. No generation is performed by synchronization. Maintainers can run `python scripts/sync_model_catalog.py --refresh` or use `--check` for an offline parity check.
+
 **GPT Image by Ace Data Cloud** is the independently installable Ace integration, not an official GPT Image account or endorsement. The plugin is free; service requests follow your Ace account permissions and current pricing.
 
 **Version 0.0.4 guide:** the explicit provider label, Marketplace `image` category and in-product Applications link apply when this version is installed. Check the version in your workspace and the [Marketplace entry](https://marketplace.dify.ai/plugin/acedatacloud/gpt_image); an older public or installed package may show the previous label. Existing screenshots are real historical interface captures, not screenshots of this metadata update.

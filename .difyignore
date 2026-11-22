@@ -1,4 +1,6 @@
 .git/
+.git
+.gitignore
 .github/
 .env*
 .venv
@@ -10,3 +12,4 @@ __pycache__/
 tests/
 pyproject.toml
 docs/
+scripts/

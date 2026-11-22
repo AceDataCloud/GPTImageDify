@@ -1,0 +1,68 @@
+{
+  "sources": {
+    "gpt_image_generate_image": {
+      "url": "https://platform.acedata.cloud/api/v1/apis/8f01fe72-8a3e-4872-8d8d-330cde179b3a/",
+      "path": "/openai/images/generations",
+      "tool": "tools/gpt_image_generate.yaml"
+    },
+    "gpt_image_edit_image": {
+      "url": "https://platform.acedata.cloud/api/v1/apis/fb74083e-bb68-48d5-8ba6-b5a224400cd3/",
+      "path": "/openai/images/edits",
+      "tool": "tools/gpt_image_edit.yaml"
+    }
+  },
+  "models": {
+    "gpt_image_generate_image": [
+      "dall-e-2",
+      "dall-e-3",
+      "gpt-image-1",
+      "gpt-image-1.5",
+      "gpt-image-2",
+      "gpt-image-2.5-flare",
+      "gpt-image-2.5-flare:reverse",
+      "gpt-image-2.5-flare:official",
+      "gpt-image-2.5-sunburst",
+      "gpt-image-2.5-sunburst:reverse",
+      "gpt-image-2.5-sunburst:official",
+      "gpt-image-2:reverse",
+      "gpt-image-2:official",
+      "nano-banana",
+      "nano-banana-2-lite",
+      "nano-banana-2",
+      "nano-banana-2.1",
+      "nano-banana-pro",
+      "gpt-image-2.6-flare",
+      "gpt-image-2.6-flare:reverse",
+      "gpt-image-2.6-flare:official",
+      "gpt-image-2.6-sunburst",
+      "gpt-image-2.6-sunburst:reverse",
+      "gpt-image-2.6-sunburst:official"
+    ],
+    "gpt_image_edit_image": [
+      "dall-e-2",
+      "dall-e-3",
+      "gpt-image-1",
+      "gpt-image-1.5",
+      "gpt-image-2",
+      "gpt-image-2.5-flare",
+      "gpt-image-2.5-flare:reverse",
+      "gpt-image-2.5-flare:official",
+      "gpt-image-2.5-sunburst",
+      "gpt-image-2.5-sunburst:reverse",
+      "gpt-image-2.5-sunburst:official",
+      "gpt-image-2:reverse",
+      "gpt-image-2:official",
+      "nano-banana",
+      "nano-banana-2-lite",
+      "nano-banana-2",
+      "nano-banana-2.1",
+      "nano-banana-pro",
+      "gpt-image-2.6-flare",
+      "gpt-image-2.6-flare:reverse",
+      "gpt-image-2.6-flare:official",
+      "gpt-image-2.6-sunburst",
+      "gpt-image-2.6-sunburst:reverse",
+      "gpt-image-2.6-sunburst:official"
+    ]
+  }
+}
