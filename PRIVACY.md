@@ -1,4 +1,4 @@
-# Privacy policy — GPT Image by Ace Data Cloud
+# Privacy policy — GPT Image
 
 Effective date: 2026-10-07. Maintainer/contact: Ace Data Cloud, dev@acedata.cloud.
 
