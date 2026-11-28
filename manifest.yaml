@@ -1,12 +1,12 @@
-version: 0.0.6
+version: 0.0.7
 type: plugin
 author: acedatacloud
 name: gpt_image
 label:
-  en_US: GPT Image by Ace Data Cloud
-  zh_Hans: GPT Image by Ace Data Cloud
-  ja_JP: GPT Image by Ace Data Cloud
-  pt_BR: GPT Image by Ace Data Cloud
+  en_US: GPT Image
+  zh_Hans: GPT Image
+  ja_JP: GPT Image
+  pt_BR: GPT Image
 description:
   en_US: Generate and edit images via Ace Data Cloud GPT Image APIs.
   zh_Hans: 通过 Ace Data Cloud GPT Image API 生成与编辑图片。
